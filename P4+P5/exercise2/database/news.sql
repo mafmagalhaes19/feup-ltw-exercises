@@ -1,25 +1,25 @@
 CREATE TABLE users (
-  username VARCHAR PRIMARY KEY,      -- unique username
-  password VARCHAR,                  -- password stored in sha-1
-  name VARCHAR                       -- real name
+  username VARCHAR PRIMARY KEY,
+  password VARCHAR,
+  name VARCHAR
 );
 
 CREATE TABLE news (
-  id INTEGER PRIMARY KEY,            -- article id
-  title VARCHAR,                     -- title of the article
+  id INTEGER PRIMARY KEY,
+  title VARCHAR,
   published INTEGER,                 -- date when the article was published in epoch format
   tags VARCHAR,                      -- comma separated tags
   username VARCHAR REFERENCES users, -- user that wrote the article
-  introduction VARCHAR,              -- a introductory paragraph
-  fulltext VARCHAR                   -- the rest of the text
+  introduction VARCHAR,
+  fulltext VARCHAR
 );
 
 CREATE TABLE comments (
-  id INTEGER PRIMARY KEY,            -- comment id
+  id INTEGER PRIMARY KEY,
   news_id INTEGER REFERENCES news,   -- news item this comment is about
   username VARCHAR REFERENCES users, -- user that wrote the comment
   published INTEGER,                 -- date when news item was published in epoch format
-  text VARCHAR                       -- comment text
+  text VARCHAR
 );
 
 -- All passwords are 1234 in SHA-1 format
@@ -88,3 +88,4 @@ INSERT INTO comments VALUES (NULL,
   1508247132,
   'Phasellus at neque nec nunc scelerisque eleifend eu eu risus. Praesent in nibh viverra, posuere ligula condimentum, accumsan tellus. Vivamus varius sem a mauris finibus, ac iaculis risus scelerisque. Nullam fermentum leo dui, at fermentum tellus consequat id. Pellentesque eleifend.'
 );
+
