@@ -10,12 +10,10 @@
   
   $stmt->execute(array($username));
 
-  $hashed_password = $stmt->fetch();
+  $user = $stmt->fetch();
 
-  if ($hashed_password && password_verify($password, $hashed_password[0])){
+  if ($user && password_verify($password, $user['password'])) 
     $_SESSION['username'] = $username;
-  } 
 
   header('Location: /');
-
 ?>

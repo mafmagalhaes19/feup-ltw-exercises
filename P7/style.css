@@ -17,9 +17,11 @@ body {
   background-color: #ccc;
 }
 
+/*
 #products article.sale {
   background-color: #ffddd2;
 }
+*/
 
 #products article .price {
   color: #006d77;
